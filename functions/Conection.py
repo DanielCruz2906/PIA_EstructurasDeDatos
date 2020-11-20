@@ -16,11 +16,7 @@ class Conexion:
     def Guardar(self):
         with sqlite3.connect("BD_Productos.db") as conn:
             mi_cursor = conn.cursor()
-            ahora1 = self.fecha
-            v_descripcion = self.v_descripcion
-            v_cantidad = self.v_cantidad
-            v_precio = self.v_precio
-            valores = {"Fecha":ahora1,"Descripcion":v_descripcion,"Cantidad":v_cantidad,"Precio":v_precio}
+            valores = {"Fecha":self.fecha,"Descripcion":self.v_descripcion,"Cantidad":self.v_cantidad,"Precio":self.v_precio}
             mi_cursor.execute("INSERT INTO T_Productos VALUES(:Fecha,:Descripcion,:Cantidad,:Precio)", valores)
 
 

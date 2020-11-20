@@ -19,8 +19,9 @@ class Conexion:
             valores = {"Fecha":self.fecha,"Descripcion":self.v_descripcion,"Cantidad":self.v_cantidad,"Precio":self.v_precio}
             mi_cursor.execute("INSERT INTO T_Productos VALUES(:Fecha,:Descripcion,:Cantidad,:Precio)", valores)
 
-
-
-    
     def Consultar(self):
-        pass
+        with sqlite3.connect("BD_Productos.db") as conn:
+            mi_cursor = conn.cursor()
+            mi_cursor.execute("SELECT * FROM T_Productos WHERE Fecha = :Fecha", self.Rango)
+            registros = mi_cursor.fetchall()
+            return registros

@@ -3,6 +3,7 @@ import sqlite3
 from sqlite3 import Error
 import datetime
 import os
+from functions.Conection import Conexion
 
 from os import system,name
 
@@ -42,10 +43,7 @@ while True:
                 lista_mult.append(v_cantidad * v_precio)
                 
                 try:
-                    with sqlite3.connect("BD_Productos.db") as conn:
-                        mi_cursor = conn.cursor()
-                        valores = {"Fecha":ahora1,"Descripcion":v_descripcion,"Cantidad":v_cantidad,"Precio":v_precio}
-                        mi_cursor.execute("INSERT INTO T_Productos VALUES(:Fecha,:Descripcion,:Cantidad,:Precio)", valores)
+                    Conexion(ahora1,v_descripcion,v_cantidad,v_precio).Guardar()
                 except Error as e:
                     print(e)
                 except:

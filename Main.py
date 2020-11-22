@@ -98,8 +98,8 @@ while True:
                     print("│Id\t\t│Fecha\t\t│Descripcion\t\t\t\t│Cantidad\t │Precio\t  │")
                     for id, fecha, descripcion, cantidad, precio in registros:
                         print("╠","═"*15,"╬","═"*15,"╬","═"*39,"╬","═"*16,"╬","═"*16,"╣",sep=(""))
-                        print("{:16}{:40}{:17}{:17}{:1}".format(f"│{id}",f"│{fecha}",f"│{descripcion}",f"│{cantidad}",f"│{precio}","│"))
-                    print("╚","═"*15,"╩","═"*39,"╩","═"*16,"╩","═"*16,"╝",sep=(""))
+                        print("{:16}{:16}{:40}{:17}{:17}{:1}".format(f"│{id}",f"│{fecha}",f"│{descripcion}",f"│{cantidad}",f"│{precio}","│"))
+                    print("╚","═"*15,"╩","═"*15,"╩","═"*39,"╩","═"*16,"╩","═"*16,"╝",sep=(""))
                 else:
                     print(f"\nNo se encontraron productos dentro de la fecha {op}\n")    
             except Error as e:
@@ -108,8 +108,6 @@ while True:
                 print(f"Se produjo el siguiente error: {sys.exc_info()[0]}")  
         elif menu == "3":
             # Opcion para salir
-            limpiar()
-            print("┌──────────────────────────────────┐\n█  Culminación del Proceso Actual  █\n└──────────────────────────────────┘")
             break
             
         else:
@@ -122,3 +120,6 @@ while True:
         print("┌──────────────────────────────────────────────┐")
         print(f"█  Ocurrió un problema {sys.exc_info()[0]}")
         print("└──────────────────────────────────────────────┘")
+
+limpiar()
+print("┌──────────────────────────────────┐\n█  Culminación del Proceso Actual  █\n└──────────────────────────────────┘")

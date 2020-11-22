@@ -95,10 +95,10 @@ while True:
             try:
                 registros = Conexion(Rango=Rango).Consultar()
                 if registros:
-                    print("│Fecha\t\t│Descripcion\t\t\t\t│Cantidad\t │Precio\t  │")
-                    for fecha, descripcion, cantidad, precio in registros:
-                        print("╠","═"*15,"╬","═"*39,"╬","═"*16,"╬","═"*16,"╣",sep=(""))
-                        print("{:16}{:40}{:17}{:17}{:1}".format(f"│{fecha}",f"│{descripcion}",f"│{cantidad}",f"│{precio}","│"))
+                    print("│Id\t\t│Fecha\t\t│Descripcion\t\t\t\t│Cantidad\t │Precio\t  │")
+                    for id, fecha, descripcion, cantidad, precio in registros:
+                        print("╠","═"*15,"╬","═"*15,"╬","═"*39,"╬","═"*16,"╬","═"*16,"╣",sep=(""))
+                        print("{:16}{:40}{:17}{:17}{:1}".format(f"│{id}",f"│{fecha}",f"│{descripcion}",f"│{cantidad}",f"│{precio}","│"))
                     print("╚","═"*15,"╩","═"*39,"╩","═"*16,"╩","═"*16,"╝",sep=(""))
                 else:
                     print(f"\nNo se encontraron productos dentro de la fecha {op}\n")    

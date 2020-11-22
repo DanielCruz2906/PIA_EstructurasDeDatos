@@ -17,7 +17,7 @@ class Conexion:
         with sqlite3.connect("BD_Productos.db") as conn:
             mi_cursor = conn.cursor()
             valores = {"Fecha":self.fecha,"Descripcion":self.v_descripcion,"Cantidad":self.v_cantidad,"Precio":self.v_precio}
-            mi_cursor.execute("INSERT INTO T_Productos VALUES(:Fecha,:Descripcion,:Cantidad,:Precio)", valores)
+            mi_cursor.execute("INSERT INTO T_Productos(Fecha,Descripcion,Cantidad,Precio) VALUES(:Fecha,:Descripcion,:Cantidad,:Precio)", valores)
 
     def Consultar(self):
         with sqlite3.connect("BD_Productos.db") as conn:
